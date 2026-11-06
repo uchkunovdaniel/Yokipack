@@ -2,18 +2,18 @@ package engine
 
 import (
 	"fmt"
-	"strings"
 )
 
 func DetectLookupTable() {
 	fmt.Println(isLanguageKnown())
 }
 
-func DetectContainer() string {
-	for idx, d := range files {
-		if strings.Contains(d, "Dockerfile") || strings.Contains(d, "Containerfile") {
-			return files[idx]
+func (fs *OSFileSystem) findContainerfiles() (string, bool) {
+	containerFiles := []string{"Dockerfile", "Containerfile"}
+	for _, name := range containerFiles {
+		if fs.exists(name) {
+			return fs.resolve(name), true
 		}
 	}
-	return ""
+	return "", false
 }
