@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/yokipack.svg" width="168" alt="Nozoki, the Yōkipack mascot: a teal stacked bento box with its lid ajar">
+  <img src="docs/assets/yokipack.svg" width="168" alt="Nozoki, the Yōkipack mascot: a teal stacked bento box drawn as a woodblock print, its lid ajar over rice, a leaf and an umeboshi">
 </p>
 
 <h1 align="center">Yōkipack</h1>
@@ -22,7 +22,8 @@ build and run commands, lets you review them, and writes a `Dockerfile` and
 The detected settings are **suggestions**. You can change any of them, and
 projects in unsupported languages work too if you enter the settings yourself.
 That's why the mascot, Nozoki (覗き, "peek"), keeps its lid open: the box is
-packed, but you can still look inside.
+packed, but you can still look inside. Nozoki is drawn like a Japanese
+woodblock print, with the wood grain showing on its face.
 
 Yōkipack is the Dockerfile generator behind [Yōkify](https://github.com/uchkunovdaniel/yokify),
 and also works as a standalone CLI, like a configurable `docker init`.
@@ -151,7 +152,7 @@ go run ./cmd/yokipack -n test          # try the CLI on a local project
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="docs/assets/yokipack.svg" width="104" alt="Nozoki"><br>
+      <img src="docs/assets/yokipack.svg" width="104" alt="Nozoki, a woodblock-printed bento box"><br>
       <b>Yōkipack</b><br>
       <sub>packs your app</sub>
     </td>
