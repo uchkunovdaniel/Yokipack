@@ -16,19 +16,22 @@ var node = Provider{
 		{
 			Name:          "pnpm",
 			Lockfiles:     []string{"pnpm-lock.yaml"},
+			ConfigFiles:   []string{".npmrc", "pnpm-workspace.yaml"},
 			Image:         nodeImage,
 			Install:       "npm install -g pnpm && pnpm install --frozen-lockfile",
 			InstallNoLock: "npm install -g pnpm && pnpm install",
 		},
 		{
-			Name:      "yarn",
-			Lockfiles: []string{"yarn.lock"},
-			Image:     nodeImage,
-			Install:   "yarn install",
+			Name:        "yarn",
+			Lockfiles:   []string{"yarn.lock"},
+			ConfigFiles: []string{".npmrc", ".yarnrc", ".yarnrc.yml", ".yarn"},
+			Image:       nodeImage,
+			Install:     "yarn install",
 		},
 		{
 			Name:          "bun",
 			Lockfiles:     []string{"bun.lock", "bun.lockb"},
+			ConfigFiles:   []string{".npmrc", "bunfig.toml"},
 			Image:         bunImage,
 			Install:       "bun install --frozen-lockfile",
 			InstallNoLock: "bun install",
@@ -36,6 +39,7 @@ var node = Provider{
 		{
 			Name:          "npm", // last = fallback
 			Lockfiles:     []string{"package-lock.json", "npm-shrinkwrap.json"},
+			ConfigFiles:   []string{".npmrc"},
 			Image:         nodeImage,
 			Install:       "npm ci",
 			InstallNoLock: "npm install",

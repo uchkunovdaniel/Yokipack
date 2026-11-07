@@ -1,0 +1,9 @@
+FROM docker.io/library/node:24-alpine
+WORKDIR /app
+
+COPY . .
+RUN make
+
+ENV PORT=8080
+EXPOSE 8080
+CMD ./app
