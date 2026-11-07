@@ -189,3 +189,18 @@ Keep one provider or fix per pull request, and make sure `go test ./...` and
   <img src="docs/assets/yokify.svg" width="72" alt="Hakobi, the Yōkify mascot"><br>
   <sub>Thanks for helping. Yōkify will deliver it.</sub>
 </p>
+
+## Releasing
+
+Releases are made from tags. Pushing a tag that starts with `v` runs
+`.github/workflows/release.yml`, which tests the code, builds binaries for
+macOS, Linux and Windows, and publishes a GitHub release. The release
+description lists the commit messages since the previous tag.
+
+Versions follow [semantic versioning](https://semver.org): bump `patch` for
+fixes, `minor` for new features, `major` for breaking changes.
+
+```sh
+git tag -a v1.1.0 -m v1.1.0
+git push origin v1.1.0
+```
