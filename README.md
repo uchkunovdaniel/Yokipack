@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/492397c7-8de3-45c0-9c09-caee5548ee59
+
 <p align="center">
   <img src="docs/assets/yokipack.svg" width="168" alt="Nozoki, the Yōkipack mascot: a teal stacked bento box drawn as a woodblock print, its lid ajar over rice, a leaf and an umeboshi">
 </p>
