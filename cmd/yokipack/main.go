@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import "os"
 
 func main() {
-	fmt.Println("yokipack: not yet implemented")
+	if err := newRootCmd().Execute(); err != nil {
+		os.Exit(1)
+	}
 }
