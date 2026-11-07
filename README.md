@@ -153,7 +153,7 @@ go run ./cmd/yokipack -n test          # try the CLI on a local project
     <td align="center" width="50%">
       <img src="docs/assets/yokipack.svg" width="104" alt="Nozoki"><br>
       <b>Yōkipack</b><br>
-      <sub>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;packs your app&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+      <sub>packs your app</sub>
     </td>
     <td align="center" width="50%">
       <a href="https://github.com/uchkunovdaniel/yokify"><img src="docs/assets/yokify.svg" width="104" alt="Hakobi"></a><br>
