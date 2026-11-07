@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/yokipack.svg" width="120" alt="Nozoki, the Yōkipack mascot">
+  <img src="docs/assets/yokipack.svg" width="120" alt="Nozoki, the Yōkipack mascot">
 </p>
 
 <h1 align="center">Contributing</h1>
@@ -186,6 +186,6 @@ Keep one provider or fix per pull request, and make sure `go test ./...` and
 `go vet ./...` pass.
 
 <p align="center">
-  <img src="assets/yokify.svg" width="72" alt="Hakobi, the Yōkify mascot"><br>
+  <img src="docs/assets/yokify.svg" width="72" alt="Hakobi, the Yōkify mascot"><br>
   <sub>Thanks for helping. Yōkify will deliver it.</sub>
 </p>
