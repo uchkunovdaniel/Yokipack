@@ -15,10 +15,7 @@ import (
 //go:embed templates/*
 var files embed.FS
 
-var templates = template.Must(
-	template.New("").Funcs(template.FuncMap{"join": strings.Join}).
-		ParseFS(files, "templates/*.tmpl"),
-)
+var templates = template.Must(template.ParseFS(files, "templates/*.tmpl"))
 
 type Options struct {
 	Port int // default 8080
