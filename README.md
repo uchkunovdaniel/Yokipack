@@ -34,11 +34,34 @@ and also works as a standalone CLI, like a configurable `docker init`.
 
 ## Install
 
+### With Go
+
 ```sh
 go install github.com/uchkunovdaniel/yokipack/cmd/yokipack@latest
 ```
 
-Requires Go 1.26 or newer.
+Requires Go 1.26 or newer. Use a version such as `@v1.0.0` instead of
+`@latest` to install a specific release.
+
+### Prebuilt binaries
+
+Download the archive for your system from the
+[latest release](https://github.com/uchkunovdaniel/yokipack/releases/latest).
+Builds are available for macOS, Linux and Windows, on both Intel (`amd64`)
+and ARM (`arm64`). Each release also has a `checksums.txt` file for checking
+your download.
+
+On macOS or Linux, unpack it and move `yokipack` onto your `PATH`:
+
+```sh
+tar -xzf yokipack_v1.0.0_darwin_arm64.tar.gz
+sudo mv yokipack_v1.0.0_darwin_arm64/yokipack /usr/local/bin/
+```
+
+On Windows, unzip the archive and put `yokipack.exe` in a folder on your `PATH`.
+
+> **macOS:** the binaries aren't signed, so macOS may block the first run.
+> Allow it with `xattr -d com.apple.quarantine /usr/local/bin/yokipack`.
 
 ## Usage
 
