@@ -118,7 +118,7 @@ func projectDir(args []string, yes bool, in io.Reader, out io.Writer) (string, e
 			Title("Project directory").
 			Value(&dir).
 			SuggestionsFunc(func() []string { return subdirs(dir) }, &dir),
-	)).WithInput(in).WithOutput(out).Run()
+	)).WithTheme(theme()).WithInput(in).WithOutput(out).Run()
 	return dir, err
 }
 
@@ -167,7 +167,7 @@ func review(p yokipack.Plan, port int, in io.Reader, out io.Writer) (yokipack.Pl
 		huh.NewInput().Title("Build").Value(&p.Build),
 		huh.NewInput().Title("Port").Value(&portText).Validate(validPort),
 		huh.NewInput().Title("Run").Value(&p.Run),
-	)).WithInput(in).WithOutput(out).Run()
+	)).WithTheme(theme()).WithInput(in).WithOutput(out).Run()
 	if err != nil {
 		return p, port, err
 	}
