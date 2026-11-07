@@ -7,5 +7,4 @@
 *.out
 .env
 .DS_Store
-go.sum
 /test/
