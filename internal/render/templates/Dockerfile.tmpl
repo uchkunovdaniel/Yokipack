@@ -1,7 +1,6 @@
 FROM {{ .Plan.Image }}
 WORKDIR /app
 {{- if .Plan.InstallFiles }}
-
 {{ range .Plan.InstallFiles }}
 COPY {{ . }} ./{{ . }}
 {{- end }}

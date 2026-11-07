@@ -1,4 +1,3 @@
-// node.go
 package providers
 
 import "strings"
