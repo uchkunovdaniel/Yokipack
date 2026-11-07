@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/492397c7-8de3-45c0-9c09-caee5548ee59
 <p align="center">
   <a href="https://go.dev/dl/"><img src="https://img.shields.io/badge/go-1.26%2B-1F6F78?style=flat-square" alt="Go 1.26+"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-185A62?style=flat-square" alt="MIT license"></a>
-  <img src="https://img.shields.io/badge/status-early%20development-C8102E?style=flat-square" alt="Status: early development">
+  <img alt="GitHub Release" src="https://img.shields.io/github/v/release/uchkunovdaniel/Yokipack">
 </p>
 
 Yōkipack looks at the files in a project, proposes a base image and install,
