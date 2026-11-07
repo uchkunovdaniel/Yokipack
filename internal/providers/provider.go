@@ -10,10 +10,11 @@ import (
 // Plan holds the suggested defaults for building and running a project.
 // An empty field means "none".
 type Plan struct {
-	Image   string
-	Install string
-	Build   string
-	Run     string
+	Image        string
+	InstallFiles []string // copied before Install for layer caching
+	Install      string
+	Build        string
+	Run          string
 }
 
 // Toolchain is one way to install a project within a provider,
@@ -21,6 +22,7 @@ type Plan struct {
 type Toolchain struct {
 	Name          string
 	Lockfiles     []string // any present → toolchain selected, install uses Install
+	ConfigFiles   []string // extra files install needs (e.g. .npmrc); copied if present
 	Image         string
 	Install       string
 	InstallNoLock string // used when no lockfile exists; "" = same as Install
@@ -100,7 +102,13 @@ func Detect(p *Project) (Plan, bool) {
 	}
 	build, run := pr.Commands(p, tc)
 
-	return Plan{Image: tc.Image, Install: install, Build: build, Run: run}, true
+	return Plan{
+		Image:        tc.Image,
+		InstallFiles: installFiles(p, pr, tc),
+		Install:      install,
+		Build:        build,
+		Run:          run,
+	}, true
 }
 
 // match finds the provider and toolchain for the project. locked reports
@@ -113,6 +121,20 @@ func match(p *Project) (pr Provider, tc Toolchain, locked, ok bool) {
 		}
 	}
 	return Provider{}, Toolchain{}, false, false
+}
+
+// installFiles lists the files to copy before running Install, so the
+// "install" layer stays cached until one of them changes: the provider's
+// markers, then the toolchain's lockfiles and config files. Only files
+// that exist are included, each once.
+func installFiles(p *Project, pr Provider, tc Toolchain) []string {
+	var files []string
+	for _, f := range slices.Concat(pr.Markers, tc.Lockfiles, tc.ConfigFiles) {
+		if p.Exists(f) && !slices.Contains(files, f) {
+			files = append(files, f)
+		}
+	}
+	return files
 }
 
 // pickToolchain chooses the preferred toolchain if declared, otherwise the
