@@ -1,0 +1,20 @@
+FROM {{ .Plan.Image }}
+WORKDIR /app
+{{- if .Plan.InstallFiles }}
+
+{{ range .Plan.InstallFiles }}
+COPY {{ . }} ./{{ . }}
+{{- end }}
+{{- end }}
+{{- if .Plan.Install }}
+RUN {{ .Plan.Install }}
+{{- end }}
+
+COPY . .
+{{- if .Plan.Build }}
+RUN {{ .Plan.Build }}
+{{- end }}
+
+ENV PORT={{ .Port }}
+EXPOSE {{ .Port }}
+CMD {{ .Plan.Run }}
