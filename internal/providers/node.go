@@ -48,15 +48,12 @@ var node = Provider{
 	Commands: scriptCommands("package.json", "scripts", nodeRunners),
 }
 
-// nodeRunners lists toolchains whose script runner differs from "<name> run".
 var nodeRunners = map[string]scriptRunner{
 	"npm": {run: "npm run", argSep: " --"},
 }
 
 func init() { register(node) }
 
-// nodePackageManager reads the "packageManager" field from package.json,
-// e.g. "pnpm@9.12.0" → "pnpm". Returns "" if missing or unreadable.
 func nodePackageManager(p *Project) string {
 	var pkg struct {
 		PackageManager string `json:"packageManager"`
